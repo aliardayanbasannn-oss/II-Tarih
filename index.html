@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Dünya Savaşı & Diktatörlüğün Sonu | Tarih Portalı</title>
+    <!-- Tailwind CSS -->a
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        darkBg: '#090a0f',
+                        cardBg: '#12151e',
+                        bloodRed: '#8b0000',
+                        accentRed: '#ff2a2a',
+                        goldAccent: '#d4af37'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Fog / Mist Animation Effect */
+        .fog-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .fog-layer {
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0) 70%);
+            opacity: 0.4;
+            animation: moveFog 25s linear infinite alternate;
+        }
+
+        .fog-layer-2 {
+            position: absolute;
+            width: 250%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(150,0,0,0.05) 0%, rgba(0,0,0,0) 60%);
+            opacity: 0.3;
+            animation: moveFogReverse 35s ease-in-out infinite alternate;
+        }
+
+        @keyframes moveFog {
+            0% { transform: translateX(0%) translateY(0%); opacity: 0.2; }
+            50% { opacity: 0.5; }
+            100% { transform: translateX(-40%) translateY(-5%); opacity: 0.2; }
+        }
+
+        @keyframes moveFogReverse {
+            0% { transform: translateX(-30%) translateY(-5%); opacity: 0.4; }
+            50% { opacity: 0.1; }
+            100% { transform: translateX(0%) translateY(0%); opacity: 0.4; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #331010;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8b0000;
+        }
+
+        .glow-red {
+            text-shadow: 0 0 15px rgba(255, 42, 42, 0.7);
+        }
+        .glow-gold {
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-gray-200 font-sans antialiased relative min-h-screen selection:bg-bloodRed selection:text-white">
+
+    <!-- Fog Overlay Layer -->
+    <div class="fog-container">
+        <div class="fog-layer"></div>
+        <div class="fog-layer-2"></div>
+    </div>
+
+    <!-- MAIN WRAPPER -->
+    <div class="relative z-10 flex flex-col min-h-screen">
+
+        <!-- ANTI-NAZI DISCLAIMER BANNER -->
+        <div class="bg-red-950/90 border-b border-red-700 py-2.5 px-4 text-center text-xs md:text-sm text-red-100 font-medium tracking-wide shadow-md flex items-center justify-center space-x-2">
+            <i class="fa-solid fa-hand-fist text-accentRed text-base"></i>
+            <span><strong>ÖNEMLİ TARİHSEL BİLDİRİ:</strong> Bu portal tamamen 9. Sınıf Tarih ve Bilişim eğitimi amacıyla hazırlanmıştır. Portalımız <strong>kesinlikle Anti-Nazi</strong> bir duruşa sahip olup; Nazizmi, faşizmi, ırkçılığı ve insanlık suçu işleyen tüm diktatörlük rejimlerini açıkça kınamakta ve reddetmektedir.</span>
+        </div>
+
+        <!-- HEADER -->
+        <header class="sticky top-0 bg-darkBg/90 backdrop-blur-md border-b border-red-900/40 z-50">
+            <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+                <!-- Brand Title -->
+                <div class="flex items-center space-x-3">
+                    <i class="fa-solid fa-monument text-accentRed text-2xl"></i>
+                    <span class="font-cinzel text-xl font-bold tracking-wider text-white">TARIH PORTALI <span class="text-xs text-red-500 font-sans font-normal border border-red-900/60 px-2 py-0.5 rounded ml-2">WW2 DOKÜMANTASYONU</span></span>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                    <a href="#hitler-hayat" class="hover:text-accentRed transition-colors">İlk Yılları</a>
+                    <a href="#nazilerin-yukselisi" class="hover:text-accentRed transition-colors">Naziler & Planlar</a>
+                    <a href="#fransa-isgali" class="hover:text-accentRed transition-colors">Fransa İşgali</a>
+                    <a href="#paris-kurtulus" class="hover:text-accentRed transition-colors">Paris'in Kurtuluşu</a>
+                    <a href="#berlin-dusu" class="hover:text-accentRed transition-colors">Son Günler</a>
+                </nav>
+
+                <!-- Actions: AI Assistant Button -->
+                <div class="flex items-center space-x-3">
+                    <button onclick="openAiModal()" class="flex items-center space-x-2 bg-gradient-to-r from-red-900 to-amber-900 hover:from-red-800 hover:to-amber-800 text-white text-xs font-semibold px-3 py-2 rounded-lg border border-red-500/30 transition shadow-lg">
+                        <i class="fa-solid fa-robot text-goldAccent"></i>
+                        <span>Tarih-AI Asistanı</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- BÖLÜM 1: TOP BANNER & MOTTO -->
+        <section class="relative py-16 md:py-24 px-4 text-center border-b border-red-900/20 bg-gradient-to-b from-black/80 via-darkBg to-darkBg">
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- Red Dramatic Headline Requested -->
+                <div class="inline-block px-4 py-1.5 bg-red-950/60 border border-red-600/40 rounded-full text-accentRed font-cinzel font-black tracking-widest text-lg md:text-2xl glow-red uppercase">
+                    "Her diktatörün bir sonu vardır."
+                </div>
+
+                <h1 class="text-4xl md:text-6xl font-cinzel font-bold text-white leading-tight">
+                    İkinci Dünya Savaşı & <br>Nazizm'in Yükselişi ve Çöküşü
+                </h1>
+                
+                <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                    Avrupa'yı ateşe veren bir hırsın, milyonların hayatına mal olan ideolojinin ve nihayetinde kaçınılmaz yıkımın kronolojik incelemesi. 9. Sınıf Bilişim ve Tarih ortak dokümantasyon projesi.
+                </p>
+
+                <!-- Visual Timeline Strip -->
+                <div class="pt-8">
+                    <div class="relative max-w-3xl mx-auto border-t border-red-900/50 pt-6 grid grid-cols-3 gap-2 text-center text-xs md:text-sm font-cinzel">
+                        <div class="space-y-1">
+                            <span class="text-red-500 font-bold block">1933 - 1939</span>
+                            <span class="text-gray-300 font-semibold">Nazi Yükselişi</span>
+                            <p class="text-[10px] text-gray-500 hidden md:block">Adolf Hitler'in diktatörlüğü ve Polonya'nın işgali</p>
+                        </div>
+                        <div class="space-y-1 border-x border-red-900/30 px-2">
+                            <span class="text-amber-500 font-bold block">1940 - 1944</span>
+                            <span class="text-gray-300 font-semibold">Fransız İşgali</span>
+                            <p class="text-[10px] text-gray-500 hidden md:block">Paris'in düşüşü ve blitzkrieg süreci</p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-emerald-500 font-bold block">1944 - 1945</span>
+                            <span class="text-gray-300 font-semibold">Fransız Kurtuluşu & Çöküş</span>
+                            <p class="text-[10px] text-gray-500 hidden md:block">Paris'in geri alınması ve Berlin sığınağındaki intihar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BÖLÜM 2: ADOLF HİTLER'İN HAYATI VE İLK YILLARI -->
+        <section id="hitler-hayat" class="py-12 px-4 max-w-7xl mx-auto w-full border-t border-gray-800/80">
+            <div class="bg-cardBg border border-gray-800 rounded-2xl p-6 md:p-10 shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 opacity-5 text-gray-100 text-9xl font-cinzel">1889</div>
+                
+                <div class="flex items-center space-x-3 mb-6">
+                    <span class="w-8 h-8 rounded-full bg-red-900/50 flex items-center justify-center text-accentRed font-bold">2</span>
+                    <h2 class="text-2xl md:text-3xl font-cinzel font-bold text-white">Adolf Hitler'in İlk Yılları ve Ressamlık Hayali</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-4 text-gray-300 text-sm md:text-base leading-relaxed">
+                        <p>
+                            <strong class="text-white">Çocukluğu ve Küçüklük Hayali:</strong> 20 Nisan 1889'da Avusturya'nın Braunau am Inn kasabasında doğdu. Gençliğinde babası Alois Hitler'in memur olması yönündeki ısrarlarına rağmen, onun tek bir büyük hayali vardı: <span class="text-amber-400 font-semibold">Ressam ve Sanatçı Olmak</span>.
+                        </p>
+                        <p>
+                            Annesinin ölümünün ardından Viyana'ya taşındı ve Viyana Güzel Sanatlar Akademisi'ne girmek için başvurdu. Ancak yeteneği mimarlığa daha yatkın bulunarak akademiden iki kez reddedildi. Bu başarısızlık hayatının dönüm noktası oldu; Viyana sokaklarında kartpostal çizerek ve fakirlik içinde yaşadı.
+                        </p>
+                        <div class="p-4 bg-black/60 border-l-4 border-red-600 rounded-r-lg text-xs md:text-sm text-gray-300 space-y-2">
+                            <span class="text-accentRed font-bold block uppercase tracking-wider">Unutulmaz Tarihsel Detay: I. Dünya Savaşı'ndaki Onbaşı ve Bağışlanma Hikayesi</span>
+                            <p>
+                                I. Dünya Savaşı patlak verince Bavyera Ordusu'na gönüllü katıldı. Savaşta <strong class="text-white">Onbaşı (Gefreiter)</strong> rütbesine kadar yükseldi ve haber taşıyıcısı olarak görev yaptı. 
+                            </p>
+                            <p>
+                                <span class="text-amber-300">1918 yılında Marcoing Savaşı sırasında</span> yaralı haldeyken İngiliz askeri <strong>Henry Tandey</strong> ile karşı karşıya geldi. Tandey, silahsız ve yaralı olan Hitler'e acıyarak silahını doğrultmadı ve hayatını bağışladı. Hitler bu olayı hiç unutmadı ve yıllar sonra Almanya Şansölyesi olduğunda Tandey'in fotoğrafını gazete küpüründen sakladığını belirtti.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Visual Representation Card -->
+                    <div class="bg-black/50 border border-gray-800 p-6 rounded-xl space-y-4">
+                        <h3 class="text-lg font-cinzel font-bold text-amber-400 border-b border-gray-800 pb-2">
+                            <i class="fa-solid fa-palette mr-2"></i>Ressamlıktan Onbaşılığa
+                        </h3>
+                        <ul class="space-y-3 text-xs md:text-sm text-gray-400">
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-red-500 mt-1"></i>
+                                <span><strong>Viyana Akademisi Reddi:</strong> 1907 ve 1908 yıllarında Güzel Sanatlar Akademisi sınavlarını kazanamadı.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-red-500 mt-1"></i>
+                                <span><strong>I. Dünya Savaşı:</strong> Batı Cephesi'nde 1. ve 2. Sınıf Demir Haç madalyası kazandı.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-red-500 mt-1"></i>
+                                <span><strong>Hardal Gazı Saldırısı:</strong> 1918'de İngiliz gaz saldırısında geçici körlük yaşadı ve hastanedeyken Almanya'nın teslim olduğunu öğrendi.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BÖLÜM 3: NAZİLERİN YÜKSELİŞİ VE CÂNİCE DİKTATÖRLÜK PLANLARI -->
+        <section id="nazilerin-yukselisi" class="py-12 px-4 max-w-7xl mx-auto w-full border-t border-gray-800/80">
+            <div class="flex items-center space-x-3 mb-8 border-b border-gray-800 pb-4">
+                <span class="w-8 h-8 rounded-full bg-red-900/50 flex items-center justify-center text-accentRed font-bold">3</span>
+                <h2 class="text-2xl font-cinzel font-bold text-white">Nazilerin Yükselişi & Hitler'in Canice Planları</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Rise to Power Card -->
+                <div class="bg-cardBg border border-gray-800 p-6 rounded-xl space-y-4 hover:border-red-900/50 transition">
+                    <div class="text-accentRed text-3xl"><i class="fa-solid fa-crown"></i></div>
+                    <h3 class="text-xl font-cinzel font-bold text-white">Führer İlan Edilmesi</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        1923 Birahane Darbesi başarısız olunca hapiste "Kavgam" (Mein Kampf) kitabını yazdı. 1933'te Şansölye seçildi. Cumhurbaşkanı Hindenburg'un ölümünün ardından devlet başkanlığı ile şansölyeliği birleştirerek kendisini mutlak lider: <strong class="text-white">Führer</strong> ilan etti.
+                    </p>
+                </div>
+
+                <!-- Dictatorship Megalomania 1 -->
+                <div class="bg-cardBg border border-gray-800 p-6 rounded-xl space-y-4 hover:border-red-900/50 transition">
+                    <div class="text-amber-500 text-3xl"><i class="fa-solid fa-fire-flame-curved"></i></div>
+                    <h3 class="text-xl font-cinzel font-bold text-white">"Dünyayı Yakma" & Nero Emri</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Savaşın sonuna doğru tam bir çılgınlığa sürüklenen Hitler, 1945'te <strong class="text-amber-400">Nero Emri (Nero-Befehl)</strong> adıyla "Yakılmış Toprak" politikasını başlattı. Kendi halkının dahi tüm fabrikalarını, köprülerini ve altyapısını patlatarak Almanya'yı tamamen yok etmeyi hedefledi.
+                    </p>
+                </div>
+
+                <!-- Moscow Destruction Plan -->
+                <div class="bg-cardBg border border-gray-800 p-6 rounded-xl space-y-4 hover:border-red-900/50 transition">
+                    <div class="text-red-600 text-3xl"><i class="fa-solid fa-skull"></i></div>
+                    <h3 class="text-xl font-cinzel font-bold text-white">Moskova'yı Patlatma ve Göle Çevirme</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Hitler'in Barbarossa Harekâtı sırasındaki en korkunç planlarından biri Moskova'yı ele geçirdikten sonra şehri haritadan silmekti. Şehrin tüm nüfusunu yok edip Moskova Kanalı'nın barajlarını patlatarak şehri yapay bir <strong class="text-red-400">devasa göle</strong> çevirmeyi hedefliyordu.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Detailed Dictatorship Bulletins -->
+            <div class="mt-6 bg-red-950/20 border border-red-900/40 p-6 rounded-xl space-y-3">
+                <h4 class="font-cinzel font-bold text-accentRed flex items-center text-lg">
+                    <i class="fa-solid fa-triangle-exclamation mr-2"></i>Hitler'in Dünyaya Yönelik Canice İdealleri
+                </h4>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm text-gray-300">
+                    <li class="bg-black/40 p-3 rounded border border-gray-800">
+                        <strong class="text-white">Welthauptstadt Germania:</strong> Berlin'i tamamen yıkıp yerine devasa, kasvetli bir dünya başkenti kurma projesi.
+                    </li>
+                    <li class="bg-black/40 p-3 rounded border border-gray-800">
+                        <strong class="text-white">Lebensraum (Yaşam Alanı):</strong> Doğu Avrupa ve Rusya halklarını yok ederek veya köleleştirerek Cermen ırkına alan açma planı.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- BÖLÜM 4: FRANSA'NIN İŞGALİ VE MÜHİM OLAYLAR -->
+        <section id="fransa-isgali" class="py-12 px-4 max-w-7xl mx-auto w-full border-t border-gray-800/80">
+            <div class="bg-cardBg border border-gray-800 rounded-2xl p-6 md:p-10">
+                <div class="flex items-center space-x-3 mb-6">
+                    <span class="w-8 h-8 rounded-full bg-red-900/50 flex items-center justify-center text-accentRed font-bold">4</span>
+                    <h2 class="text-2xl md:text-3xl font-cinzel font-bold text-white">Fransa'nın İşgali ve Paris'teki Meşhur Olaylar</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-4 text-gray-300 text-sm md:text-base leading-relaxed">
+                        <p>
+                            <strong>Mayıs 1940 - Blitzkrieg (Yıldırım Savaşı):</strong> Alman panzer birlikleri Maginot Hattı'nı Ardenler Ormanı üzerinden aşarak Fransız ordusunu gafil avladı. Yalnızca 6 hafta içinde Fransa teslim olmak zorunda kaldı.
+                        </p>
+                        
+                        <div class="p-4 bg-black/50 border border-amber-900/40 rounded-xl space-y-2">
+                            <h4 class="font-cinzel font-bold text-amber-400 text-base">Paris'e Kurşun Atılmadan Girilmesi ve Kandırmaca</h4>
+                            <p class="text-xs md:text-sm text-gray-300">
+                                Paris "Açık Şehir" (Open City) ilan edilerek tarihi dokusu bozulmasın diye direnişsiz teslim edildi. 23 Haziran 1940 tarihinde Hitler hayatında ilk ve tek kez Paris'e geldi.
+                            </p>
+                            <p class="text-xs text-gray-400">
+                                <strong class="text-white">Meşhur Poz ve Yanındaki İsimler:</strong> Eyfel Kulesi önünde çekilen o tarihi fotoğrafta Hitler'in sağında heykeltıraş <span class="text-amber-300">Arno Breker</span>, solunda ise baş mimarı ve Sonradan Silahlanma Bakanı olan <span class="text-amber-300">Albert Speer</span> duruyordu. Fransızların Eyfel Kulesi asansör kablolarını keserek Hitler'in kuleye tırmanmasını engellemesi de dönemin meşhur direniş jestlerinden biridir.
+                            </p>
+                        </div>
+
+                        <p class="text-xs text-gray-400">
+                            Fransız birliklerinin ilk direnişleri yetersiz kalıp General Philippe Pétain komutasındaki işbirlikçi <strong>Vichy Hükümeti</strong> kurulmuş olsa da, Charles de Gaulle liderliğindeki Özgür Fransa Birlikleri pes etmedi.
+                        </p>
+                    </div>
+
+                    <!-- Historic Archival Card (Image removed due to copyright) -->
+                    <div class="bg-black/60 border border-red-900/40 p-6 rounded-xl space-y-4 text-center">
+                        <div class="w-12 h-12 rounded-full bg-red-950 text-accentRed mx-auto flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-landmark font-bold"></i>
+                        </div>
+                        <h3 class="font-cinzel text-lg font-bold text-amber-400">23 Haziran 1940 - Paris / Eyfel Kulesi</h3>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Hitler, baş mimarı Albert Speer ve heykeltıraş Arno Breker ile birlikte işgal altındaki Paris'e 3 saatlik bir ziyaret gerçekleştirdi. Şehrin tarihi mimarisini inceledikten sonra Paris'ten ayrıldı.
+                        </p>
+                        <span class="inline-block px-3 py-1 bg-red-900/30 text-red-400 text-[11px] rounded border border-red-800">Tarihsel Arşiv Notu</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BÖLÜM 5: FRANSIZ BİRLİKLERİNİN BÜYÜK TAARRUZU VE PARİS'İN KURTULUŞU -->
+        <section id="paris-kurtulus" class="py-12 px-4 max-w-7xl mx-auto w-full border-t border-gray-800/80">
+            <div class="flex items-center space-x-3 mb-8 border-b border-gray-800 pb-4">
+                <span class="w-8 h-8 rounded-full bg-emerald-900/50 flex items-center justify-center text-emerald-400 font-bold">5</span>
+                <h2 class="text-2xl font-cinzel font-bold text-white">Paris'in Geri Alınması ve Fransız Kurtuluşu</h2>
+            </div>
+
+            <div class="bg-cardBg border border-emerald-900/30 p-6 md:p-8 rounded-2xl space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-3">
+                        <h3 class="text-lg font-cinzel font-bold text-emerald-400">Normandiya Çıkarması & Leclerc'in Birlikleri</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            6 Haziran 1944 Normandiya Çıkarması (D-Day) sonrası Müttefik kuvvetleri Fransa içlerine ilerledi. General Philippe Leclerc komutasındaki Fransız 2. Zırhlı Tümeni ve Fransız İç Direnişçileri (FFI) Paris'e doğru büyük taarruza geçti.
+                        </p>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h3 class="text-lg font-cinzel font-bold text-emerald-400">25 Ağustos 1944: Paris Özgür!</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Hitler'in "Paris yakılsın ve enkaz halinde teslim edilsin" emrine rağmen, Alman Generali Dietrich von Choltitz şehri yakmadı ve teslim oldu. General Charles de Gaulle, Champs-Élysées bulvarında zafer yürüyüşünü gerçekleştirdi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BÖLÜM 6: SOVYETLERİN BERLİN'E YAKLAŞMASI VE SIĞINAKTA İNTİHAR -->
+        <section id="berlin-dusu" class="py-12 px-4 max-w-7xl mx-auto w-full border-t border-gray-800/80 mb-12">
+            <div class="bg-gradient-to-r from-red-950/40 via-cardBg to-black border border-red-900/60 rounded-2xl p-6 md:p-10 shadow-2xl relative">
+                <div class="flex items-center space-x-3 mb-6">
+                    <span class="w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center font-bold">6</span>
+                    <h2 class="text-2xl md:text-3xl font-cinzel font-bold text-white">Sovyet Kuşatması ve Führerbunker'de Son</h2>
+                </div>
+
+                <div class="space-y-4 text-gray-300 text-sm md:text-base leading-relaxed">
+                    <p>
+                        <strong>Nisan 1945 - Berlin Muharebesi:</strong> Kızıl Ordu (Sovyetler) Berlin sokaklarına kadar dayandı. Şehir harabeye döndü; Hitler ise yerin metrelerce altındaki <span class="text-amber-400 font-semibold">Führerbunker</span> sığınağına kapandı.
+                    </p>
+                    <p>
+                        Sovyet askerleri sığınağın sadece birkaç yüz metre ötesine kadar yaklaşmışken, 29 Nisan 1945 gecesi Hitler uzun süredir birlikte olduğu <strong class="text-white">Eva Braun</strong> ile sığınakta resmi olarak evlendi.
+                    </p>
+                    
+                    <div class="p-5 bg-black/80 border-l-4 border-red-600 rounded-r-xl space-y-2">
+                        <h4 class="font-cinzel font-bold text-accentRed text-lg">30 Nisan 1945: Diktatörlüğün İntihar İle Sonu</h4>
+                        <p class="text-xs md:text-sm text-gray-300">
+                            30 Nisan 1945 öğleden sonra saat 15:30 sularında Adolf Hitler ve Eva Braun sığınaktaki odalarına çekildi. Hitler siyanür kapsülünü ısırdıktan sonra şakağına ateş ederek intihar etti; Eva Braun ise siyanür içerek hayatına son verdi.
+                        </p>
+                        <p class="text-xs text-gray-400">
+                            Vasiyeti üzerine cesetleri sığınak bahçesinde benzin dökülerek yakıldı. Birkaç gün sonra Sovyet askerleri Reichstag binasına zafer bayrağını dikti ve İkinci Dünya Savaşı Avrupa'da sona erdi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="mt-auto bg-black border-t border-gray-900 py-6 text-center text-xs text-gray-500">
+            <p>9. Sınıf Bilişim Teknolojileri Tarih Sunumu Projesi &copy; 2026 - Tüm Hakları Saklıdır.</p>
+        </footer>
+
+    </div>
+
+    <!-- MODAL: TARİH-AI YAZILIM ASİSTANI (Gemini Entegrasyonu) -->
+    <div id="aiModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-cardBg border border-gray-800 rounded-2xl max-w-2xl w-full h-[80vh] flex flex-col overflow-hidden shadow-2xl">
+            <!-- AI Header -->
+            <div class="p-4 bg-gray-900 border-b border-gray-800 flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-9 h-9 rounded-full bg-red-900/40 border border-red-500/30 flex items-center justify-center text-goldAccent">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-cinzel font-bold text-white text-sm md:text-base">Tarih-AI Rehberi</h3>
+                        <p class="text-[11px] text-gray-400">Ücretsiz Gemini AI Entegre Soru-Cevap Asistanı</p>
+                    </div>
+                </div>
+                <button onclick="closeAiModal()" class="text-gray-400 hover:text-white">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Chat Messages Area -->
+            <div id="chatBox" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs md:text-sm">
+                <div class="bg-gray-900 border border-gray-800 p-3 rounded-lg max-w-[85%] text-gray-300">
+                    Merhaba! Ben senin 2. Dünya Savaşı ve Tarih sunumu asistanınım. Sunum sırasında öğretmeninin veya arkadaşlarının soracağı tüm soruları bana iletebilirsin!
+                </div>
+            </div>
+
+            <!-- Chat Input Area -->
+            <div class="p-3 bg-black/60 border-t border-gray-800 flex space-x-2">
+                <input type="text" id="aiInput" placeholder="Örn: Hitler I. Dünya Savaşında hangi rütbedeydi?" class="flex-1 bg-gray-900 border border-gray-700 rounded-lg px-3 py-2 text-xs md:text-sm text-white focus:outline-none focus:border-red-500" onkeypress="if(event.key === 'Enter') askAi()">
+                <button onclick="askAi()" id="sendAiBtn" class="bg-red-800 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-xs md:text-sm font-semibold transition flex items-center justify-center">
+                    <span>Gönder</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        function openAiModal() {
+            document.getElementById('aiModal').classList.remove('hidden');
+        }
+
+        function closeAiModal() {
+            document.getElementById('aiModal').classList.add('hidden');
+        }
+
+        // Gemini API Text Generation Call
+        async function askAi() {
+            const inputEl = document.getElementById('aiInput');
+            const userText = inputEl.value.trim();
+            if (!userText) return;
+
+            const chatBox = document.getElementById('chatBox');
+
+            // Render User Message
+            const userMsgDiv = document.createElement('div');
+            userMsgDiv.className = "bg-red-950/60 border border-red-800/50 p-3 rounded-lg max-w-[85%] ml-auto text-white";
+            userMsgDiv.innerText = userText;
+            chatBox.appendChild(userMsgDiv);
+
+            inputEl.value = '';
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // Render Loader Message
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = "bg-gray-900 border border-gray-800 p-3 rounded-lg max-w-[85%] text-gray-400 italic";
+            loadingDiv.innerText = "Tarih-AI yanıt hazırlıyor...";
+            chatBox.appendChild(loadingDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            try {
+                const systemPrompt = "Sen 2. Dünya Savaşı, Adolf Hitler, Fransa'nın işgali ve kurtuluşu konusunda uzman bir tarih öğretmenisin. Cevaplarını Türkçe olarak net, anlaşılır ve tarihsel gerçeklere uygun ver.";
+                const apiKey = ""; // Runtime platform provides the API key
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userText }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] }
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                chatBox.removeChild(loadingDiv);
+
+                const aiReply = result.candidates?.[0]?.content?.parts?.[0]?.text || "Üzgünüm, şu an yanıt oluşturulamadı.";
+
+                // Render AI Message
+                const aiMsgDiv = document.createElement('div');
+                aiMsgDiv.className = "bg-gray-900 border border-gray-800 p-3 rounded-lg max-w-[85%] text-gray-200 leading-relaxed";
+                aiMsgDiv.innerText = aiReply;
+                chatBox.appendChild(aiMsgDiv);
+            } catch (err) {
+                chatBox.removeChild(loadingDiv);
+                const errorDiv = document.createElement('div');
+                errorDiv.className = "bg-red-900/40 border border-red-700 p-3 rounded-lg max-w-[85%] text-red-300";
+                errorDiv.innerText = "Yapay zeka yanıt verirken bir hata oluştu. Lütfen tekrar deneyin.";
+                chatBox.appendChild(errorDiv);
+            }
+
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // Custom UI Notification Box
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.className = "fixed bottom-5 right-5 bg-emerald-900 text-white px-4 py-3 rounded-lg shadow-2xl border border-emerald-500 z-50 text-xs font-semibold animate-bounce";
+            toast.innerText = msg;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+    </script>
+</body>
+</html>
